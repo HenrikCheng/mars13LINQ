@@ -18,6 +18,11 @@ namespace mars14_1300PontusÖvning
                 new Person () {Name = "Henrik", Age = 40, WorkplaceID = 1},
             };
 
+            Random r = new Random();
+
+            var slumpad = people
+                .OrderBy(x => r.Next(1, 10000));
+
             Workplace[] company = new Workplace[]{
                 new Workplace () {CompanyName = "Academy", WorkplaceID = 1},
                 new Workplace () {CompanyName = "Google", WorkplaceID = 2},
@@ -49,7 +54,7 @@ namespace mars14_1300PontusÖvning
                 Console.WriteLine($"Name: {item.Name}, arbetsplats {item.CompanyName}, ref nr: {item.WorkplaceID}");
             }
 
-            var groupJoinList = people.GroupJoin(company, p => p.WorkplaceID, c => c.WorkplaceID, (p, k) => new { PersonName = p.Name, PN = k } );
+            var groupJoinList = people.GroupJoin(company, p => p.WorkplaceID, c => c.WorkplaceID, (p, k) => new { PersonName = p.Name, PN = k });
             foreach (var item in groupJoinList)
             {
                 Console.Write(item.PersonName);
@@ -60,16 +65,22 @@ namespace mars14_1300PontusÖvning
             }
             Console.WriteLine();
 
-            var groupJoinList2 = company.GroupJoin(people, c => c.WorkplaceID, p => p.WorkplaceID, (c, p) => new { PN = c.CompanyName , PersonName = p});
+            var groupJoinList2 = company
+                .GroupJoin(people, c => c.WorkplaceID, p => p.WorkplaceID, (c, p) => new { PN = c.CompanyName, Employees = p });
             foreach (var item in groupJoinList2)
             {
                 Console.WriteLine(item.PN);
-                foreach (var innerItem in item.PersonName)
+                foreach (var innerItem in item.Employees)
                 {
                     Console.Write($"{innerItem.Name}, ");
                 }
                 Console.WriteLine();
             }
+
+            var anställda = groupJoinList2
+                .OrderByDescending(x => x.Employees.Count())
+                .First();
+            Console.WriteLine($"Företaget: {anställda.PN}, antal anställda: {anställda.Employees.Count()}");
         }
     }
 }
