@@ -45,9 +45,11 @@ namespace mars14_1300PontusÖvning
             var folkUnder30 = people.Count(x => x.Age < 30);
             Console.WriteLine(folkUnder30);
 
+            Console.WriteLine("3c");
             var snittålder = people.Average(x => x.Age);
             Console.WriteLine(snittålder);
 
+            Console.WriteLine("3d");
             var förstaNamnet = people.FirstOrDefault(x => x.Name == "Anna");
             Console.WriteLine(förstaNamnet.Name + ", " + förstaNamnet.Age);
             //f
@@ -58,18 +60,6 @@ namespace mars14_1300PontusÖvning
             {
                 Console.WriteLine($"Name: {item.Name}, arbetsplats {item.CompanyName}, ref nr: {item.WorkplaceID}");
             }
-
-            //Console.WriteLine("Uppgift G");
-            //var groupJoinList = people.GroupJoin(company, p => p.WorkplaceID, c => c.WorkplaceID, (p, k) => new { PersonName = p.Name, PN = k });
-            //foreach (var item in groupJoinList)
-            //{
-            //    Console.Write(item.PersonName);
-            //    foreach (var innerItem in item.PN)
-            //    {
-            //        Console.WriteLine(innerItem.CompanyName);
-            //    }
-            //}
-            //Console.WriteLine();
 
             Console.WriteLine("Uppgift G");
             var groupJoinList2 = company
