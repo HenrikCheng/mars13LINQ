@@ -8,10 +8,10 @@ namespace _1150FunkExempel
         {
             /* Tilldela variabeln foo av typen Func<string, int>
              * * metoden ReturnStringLength. */
-            Func<string, int> foo = ReturnStringLength;
-
             Console.Write("Mata in en sträng: ");
             string s = Console.ReadLine();
+
+            Func<string, int> foo = ReturnStringLength;
 
             // Anropa metoden som variabeln foo tilldelats.
             int i = foo(s);

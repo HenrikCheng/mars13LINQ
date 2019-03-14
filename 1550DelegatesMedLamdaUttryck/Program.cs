@@ -8,14 +8,13 @@ namespace _1550DelegatesMedLamdaUttryck
     {
         static void Main(string[] args)
         {
-            //const string DirPath = @"C:\Projects\OOdemo";
-
+            //const string dirPath = @"C:\Projects\OOdemo";
             //named method (C# 1.0)
             //FileFinder.FindFiles(DirPath, myTextFilter);
             //Console.WriteLine();
 
             //Lambda (C# 3.0)
-            FileFinder.FindFiles(@"C:\Projects\OOdemo", p =>Path.GetExtension(p) == ".txt");
+            FileFinder.FindFiles(@"C:\Projects\OOdemo", p => Path.GetExtension(p) == ".txt");
         }
 
         //static bool myTextFilter(string path)

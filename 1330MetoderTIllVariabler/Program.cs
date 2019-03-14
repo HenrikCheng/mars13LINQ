@@ -8,10 +8,10 @@ namespace _1330MetoderTIllVariabler
         {
             I_Take_A_Delegate(HelloWorldMethod);
         }
-        static void I_Take_A_Delegate(Action a)
+        static void I_Take_A_Delegate(Action HelloWorldMethod)
         {
             Console.WriteLine("Time to call the method in parameter 'a'");
-            a();
+            HelloWorldMethod();
         }
         static void HelloWorldMethod()
         {

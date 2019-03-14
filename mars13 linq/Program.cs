@@ -6,14 +6,23 @@ namespace mars13_linq
 {
     class Program
     {
+        static bool Compare (Person p)
+        {
+            return p.Age < 50;
+        }
         static void Main(string[] args)
         {
             List<Person> people = new List<Person>()
             {
             new Person { Name = "Håkan", Age = 56 },
             new Person { Name = "Pontus", Age = 40 },
-            new Person { Name = "Academy", Age = 4 }
+            new Person { Name = "Gabriella", Age = 30 }
             };
+
+            var q = people.FirstOrDefault(Compare);
+            Console.WriteLine(q);
+            Console.WriteLine();
+            var sameAsAbove = people.FirstOrDefault(p => p.Age < 50);
 
             var peopleList = people.OrderBy(p => p.Name);
             //exakt samma kodrad som ovan fast skrivet med en annan syntax
@@ -23,6 +32,7 @@ namespace mars13_linq
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine();
         }
     }
     class Person
