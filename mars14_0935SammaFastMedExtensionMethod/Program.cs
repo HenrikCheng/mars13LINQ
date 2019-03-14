@@ -13,7 +13,7 @@ namespace mars14_0935SammaFastMedExtensionMethod
                 1, 2, 7, 12, 14, 16
             };
 
-            var q = vs.OrderBy(x => x.)
+            //var q = vs.OrderBy(x => x.)
 
             Console.WriteLine("Odd numbers:");
             foreach (var oneInt in vs)
